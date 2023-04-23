@@ -2,15 +2,25 @@ const express = require("express");
 const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
 const workoutRoutes = require("./routes/workouts");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 4000;
 
 const app = express();
 
+app.use(cors());
+
 app.use((req, res, next) => {
   console.log(req.path, req.method);
   next();
 });
+
+const corsOptions = {
+  origin: "http://localhost:5173",
+  optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
+};
+
+app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use("/api/workouts", workoutRoutes);
