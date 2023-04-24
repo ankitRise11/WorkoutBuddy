@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
 
@@ -15,6 +16,7 @@ const WorkoutDetails = ({ workout }) => {
       dispatch({ type: "DELETE_WORKOUT", payload: json });
     }
   };
+
   return (
     <div className="workout-details">
       <h4>{workout.title}</h4>
@@ -32,6 +34,9 @@ const WorkoutDetails = ({ workout }) => {
       <span onClick={handleClick} className="material-symbols-outlined">
         Delete
       </span>
+      <Link to={`/update-data/${workout._id}`}>
+        <span className="material-symbols-outlined span1">Update</span>
+      </Link>
     </div>
   );
 };
