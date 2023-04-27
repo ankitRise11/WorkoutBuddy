@@ -3,6 +3,7 @@ const dotenv = require("dotenv").config();
 const mongoose = require("mongoose");
 const workoutRoutes = require("./routes/workouts");
 const cors = require("cors");
+const userRoutes = require("./routes/users");
 
 const PORT = process.env.PORT || 4000;
 
@@ -24,6 +25,7 @@ app.use(cors(corsOptions));
 
 app.use(express.json());
 app.use("/api/workouts", workoutRoutes);
+app.use("/api/user", userRoutes);
 
 mongoose
   .connect(process.env.MONGO_URI)
