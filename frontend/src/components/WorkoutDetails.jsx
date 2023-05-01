@@ -1,14 +1,20 @@
 import { Link } from "react-router-dom";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const WorkoutDetails = ({ workout }) => {
+  const { user } = useAuthContext();
   const { dispatch } = useWorkoutsContext();
   const handleClick = async () => {
+    if (!user) {
+      return;
+    }
     const response = await fetch(
       "http://localhost:3500/api/workouts/" + workout._id,
       {
         method: "DELETE",
+        headers: { Authorization: `Bearer ${user.token}` },
       }
     );
     const json = await response.json();
@@ -34,9 +40,9 @@ const WorkoutDetails = ({ workout }) => {
       <span onClick={handleClick} className="material-symbols-outlined">
         Delete
       </span>
-      <Link to={`/update-data/${workout._id}`}>
+      {/* <Link to={`/update-data/${workout._id}`}>
         <span className="material-symbols-outlined span1">Update</span>
-      </Link>
+      </Link> */}
     </div>
   );
 };
