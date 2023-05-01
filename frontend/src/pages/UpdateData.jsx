@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 const UpdateData = () => {
+  const { user } = useAuthContext();
   const { dispatch } = useWorkoutsContext();
   const [title, setTitle] = useState("");
   const [load, setLoad] = useState("");
@@ -12,7 +14,11 @@ const UpdateData = () => {
   const { id } = useParams();
   useEffect(() => {
     const fetchWorkout = async () => {
-      const response = await fetch(`http://localhost:3500/api/workouts/${id}`);
+      const response = await fetch(`http://localhost:3500/api/workouts/${id}`, {
+        headers: {
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
       const data = await response.json();
 
       setTitle(data.title);
@@ -27,6 +33,7 @@ const UpdateData = () => {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
       body: JSON.stringify({
         title,

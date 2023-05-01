@@ -67,6 +67,17 @@ header a {
   color: #333;
 }
 
+.workout-details .span1 {
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  cursor: pointer;
+  background: #f1f1f1;
+  padding: 6px;
+  border-radius: 50%;
+  color: #333;
+}
+
 /* new workout form */
 label,
 input {

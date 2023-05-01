@@ -40,9 +40,9 @@ const WorkoutDetails = ({ workout }) => {
       <span onClick={handleClick} className="material-symbols-outlined">
         Delete
       </span>
-      {/* <Link to={`/update-data/${workout._id}`}>
+      <Link to={`/update-data/${workout._id}`}>
         <span className="material-symbols-outlined span1">Update</span>
-      </Link> */}
+      </Link>
     </div>
   );
 };
