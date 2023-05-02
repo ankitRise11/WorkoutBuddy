@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 });
 
 const corsOptions = {
-  origin: "http://workout-buddy-frontend.onrender.com",
+  origin: "https://workout-buddy-frontend-wihw.onrender.com",
   optionsSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
 };
 

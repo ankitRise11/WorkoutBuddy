@@ -13,7 +13,7 @@ const Home = () => {
   useEffect(() => {
     const fetchWorkouts = async () => {
       const response = await fetch(
-        "https://workout-buddy-api.onrender.com/api/workouts",
+        "https://workout-buddy-backend-qbz9.onrender.com/api/workouts",
         {
           headers: {
             Authorization: `Bearer ${user.token}`,

@@ -11,7 +11,7 @@ export const useLogin = () => {
     setError(null);
 
     const response = await fetch(
-      "https://workout-buddy-api.onrender.com/api/user/login",
+      "https://workout-buddy-backend-qbz9.onrender.com/api/user/login",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

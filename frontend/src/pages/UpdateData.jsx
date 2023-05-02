@@ -15,7 +15,7 @@ const UpdateData = () => {
   useEffect(() => {
     const fetchWorkout = async () => {
       const response = await fetch(
-        `https://workout-buddy-api.onrender.com/api/workouts/${id}`,
+        `https://workout-buddy-backend-qbz9.onrender.com/api/workouts/${id}`,
         {
           headers: {
             Authorization: `Bearer ${user.token}`,
@@ -33,7 +33,7 @@ const UpdateData = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch(
-      `https://workout-buddy-api.onrender.com/api/workouts/${id}`,
+      `https://workout-buddy-backend-qbz9.onrender.com/api/workouts/${id}`,
       {
         method: "PATCH",
         headers: {

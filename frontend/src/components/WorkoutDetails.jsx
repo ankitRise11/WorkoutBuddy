@@ -11,7 +11,8 @@ const WorkoutDetails = ({ workout }) => {
       return;
     }
     const response = await fetch(
-      "https://workout-buddy-api.onrender.com/api/workouts/" + workout._id,
+      "https://workout-buddy-backend-qbz9.onrender.com/api/workouts/" +
+        workout._id,
       {
         method: "DELETE",
         headers: { Authorization: `Bearer ${user.token}` },
