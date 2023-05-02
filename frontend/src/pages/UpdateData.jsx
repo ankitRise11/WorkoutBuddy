@@ -14,11 +14,14 @@ const UpdateData = () => {
   const { id } = useParams();
   useEffect(() => {
     const fetchWorkout = async () => {
-      const response = await fetch(`http://localhost:3500/api/workouts/${id}`, {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        `https://workout-buddy-api.onrender.com/api/workouts/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const data = await response.json();
 
       setTitle(data.title);
@@ -29,18 +32,21 @@ const UpdateData = () => {
   }, [id]);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3500/api/workouts/${id}`, {
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${user.token}`,
-      },
-      body: JSON.stringify({
-        title,
-        load,
-        reps,
-      }),
-    });
+    const response = await fetch(
+      `https://workout-buddy-api.onrender.com/api/workouts/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+        body: JSON.stringify({
+          title,
+          load,
+          reps,
+        }),
+      }
+    );
     const json = await response.json();
     if (response.ok) {
       setTitle("");

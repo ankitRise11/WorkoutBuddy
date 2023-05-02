@@ -12,11 +12,14 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWorkouts = async () => {
-      const response = await fetch("http://localhost:3500/api/workouts", {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      });
+      const response = await fetch(
+        "https://workout-buddy-api.onrender.com/api/workouts",
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
       const json = await response.json();
 
       if (response.ok) {
