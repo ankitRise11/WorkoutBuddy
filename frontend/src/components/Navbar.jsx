@@ -12,19 +12,19 @@ const Navbar = () => {
     <header>
       <div className="container">
         <Link to="/">
-          <h1>Workout Buddy</h1>
+          <h2>Workout Buddy</h2>
         </Link>
         <nav>
           {user && (
             <div>
-              <span>{user.email}</span>
+              {/* <span>{user.email}</span> */}
               <button onClick={handleClick}>Logout</button>
             </div>
           )}
           {!user && (
             <div>
               <Link to="/login">Login</Link>
-              <Link to="/signup">Sign Up</Link>
+              <Link to="/signup">SignUp</Link>
             </div>
           )}
         </nav>
